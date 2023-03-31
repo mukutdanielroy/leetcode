@@ -17,14 +17,21 @@ class Solution:
     def longestPalindrome(s):
         if len(s) == 1:
             return s[0]
+        output = []
         left, first_index = 0, 0
         right = last_index = len(s)-1
         for i, c in enumerate(s):
+            first_index = left = i
+            right = len(s)-1
             while right > left:
-                if s[i] == s[right]:
+                if s[left] == s[right]:
+                    output.append(s[])
                     left += 1
                     right -= 1
-                    
+                    continue
+                else:
+                    last_index = right
+                right -= 1 
         return s[first_index:last_index+1]
 
 print(Solution.longestPalindrome("eabcbdf"))
